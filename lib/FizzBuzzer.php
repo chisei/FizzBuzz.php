@@ -17,6 +17,10 @@ class FizzBuzzer
             throw new \InvalidArgumentException('This value should be an integer.');
         }
 
+        if ($val < 1) {
+            throw new \InvalidArgumentException('This value should be greater than zero.');
+        }
+
         if ($val % (static::FIZZ * static::BUZZ) === 0) {
             $string = 'Fizz Buzz';
         } elseif ($val % static::FIZZ === 0) {

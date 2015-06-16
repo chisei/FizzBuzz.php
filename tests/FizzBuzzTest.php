@@ -50,4 +50,22 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
             [0.1],
         ];
     }
+
+    /**
+     * @test
+     * @dataProvider shouldBeGreaterThanZeroDataProvider
+     * @expectedException InvalidArgumentException
+     */
+    public function shouldBeGreaterThanZero($input)
+    {
+        $actual = FizzBuzzer::fizzBuzz($input);
+    }
+
+    public function shouldBeGreaterThanZeroDataProvider()
+    {
+        return [
+            [-1],
+            [0],
+        ];
+    }
 }
