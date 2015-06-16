@@ -6,16 +6,16 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @test
-     * @dataProvider correctlyFizzBuzzDataProvider
+     * @dataProvider correctFizzBuzzDataProvider
      */
-    public function fizzBuzz($input, $expected)
+    public function correctFizzBuzz($input, $expected)
     {
         $actual = FizzBuzzer::fizzBuzz($input);
 
         $this->assertSame($expected, $actual);
     }
 
-    public function correctlyFizzBuzzDataProvider()
+    public function correctFizzBuzzDataProvider()
     {
         return [
             [1, 1],
@@ -26,7 +26,28 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
             [15, 'Fizz Buzz'],
             [16, 16],
             [PHP_INT_MAX, PHP_INT_MAX],
-            [PHP_INT_MAX+1, PHP_INT_MAX+1],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider intIsNotAllowedDataProvider
+     * @expectedException InvalidArgumentException
+     */
+    public function intIsNotAllowed($input)
+    {
+        $actual = FizzBuzzer::fizzBuzz($input);
+    }
+
+    public function intIsNotAllowedDataProvider()
+    {
+        return [
+            [true],
+            [false],
+            [null],
+            ['0'],
+            ['a'],
+            [0.1],
         ];
     }
 }

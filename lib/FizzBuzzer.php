@@ -8,11 +8,15 @@ class FizzBuzzer
     const BUZZ = 5;
 
     /**
-     * @param $val
+     * @param  integer $val
      * @return string
      */
     public static function fizzBuzz($val)
     {
+        if (!is_int($val)) {
+            throw new \InvalidArgumentException('This value should be an integer.');
+        }
+
         if ($val % (static::FIZZ * static::BUZZ) === 0) {
             $string = 'Fizz Buzz';
         } elseif ($val % static::FIZZ === 0) {
