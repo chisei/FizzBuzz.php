@@ -25,7 +25,7 @@ class FizzBuzzTest extends PHPUnit_Framework_TestCase
             [5, 'Buzz'],
             [15, 'Fizz Buzz'],
             [16, 16],
-            [PHP_INT_MAX, PHP_INT_MAX],
+            [2147483647, 2147483647],
         ];
     }
 
